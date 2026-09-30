@@ -13,7 +13,7 @@ namespace Soenneker.PlanetScale.OpenApiClientUtil.Tests;
 public sealed class PlanetScaleOpenApiClientUtilTests
 {
     [Test]
-    public async Task Uses_configured_base_url_and_service_token_and_caches_client()
+    public async ValueTask Uses_configured_base_url_and_service_token_and_caches_client()
     {
         var configuration = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
         {
