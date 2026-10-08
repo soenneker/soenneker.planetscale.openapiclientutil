@@ -13,7 +13,7 @@ namespace Soenneker.PlanetScale.OpenApiClientUtil.Tests;
 public sealed class PlanetScaleOpenApiClientUtilTests
 {
     [Test]
-    public async ValueTask Uses_configured_base_url_and_service_token_and_caches_client()
+    public async ValueTask Uses_configured_base_url_and_service_token_and_caches_client(CancellationToken cancellationToken)
     {
         var configuration = new ConfigurationBuilder().AddInMemoryCollection(new Dictionary<string, string?>
         {
@@ -24,9 +24,9 @@ public sealed class PlanetScaleOpenApiClientUtilTests
         using var httpClientUtil = new StubHttpClient(httpClient);
         await using var utility = new PlanetScaleOpenApiClientUtil(httpClientUtil, configuration);
 
-        var client = await utility.Get();
-        await Assert.That(ReferenceEquals(client, await utility.Get())).IsTrue();
-        var response = await client.Organizations.GetAsync();
+        var client = await utility.Get(cancellationToken: cancellationToken);
+        await Assert.That(ReferenceEquals(client, await utility.Get(cancellationToken: cancellationToken))).IsTrue();
+        var response = await client.Organizations.GetAsync(cancellationToken: cancellationToken);
 
         await Assert.That(handler.RequestUri).IsEqualTo("https://planetscale.invalid/custom/v1/organizations");
         await Assert.That(handler.Authorization).IsEqualTo("test-id:test-token");
