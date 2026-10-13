@@ -24,7 +24,7 @@ public sealed class PlanetScaleOpenApiClientUtil : IPlanetScaleOpenApiClientUtil
         {
             HttpClient httpClient = await httpClientUtil.Get(token).NoSync();
 
-            var apiKey = configuration.GetValueStrict<string>("PlanetScale:ApiKey");
+            var apiKey = configuration.GetStringStrict("PlanetScale:ApiKey");
             string authHeaderName = configuration["PlanetScale:AuthHeaderName"] ?? "Authorization";
             string authHeaderValueTemplate = configuration["PlanetScale:AuthHeaderValueTemplate"] ?? "{token}";
             string authHeaderValue = authHeaderValueTemplate.Replace("{token}", apiKey, StringComparison.Ordinal);
