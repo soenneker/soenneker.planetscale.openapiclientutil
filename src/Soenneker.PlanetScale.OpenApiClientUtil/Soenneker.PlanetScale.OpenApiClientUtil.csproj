@@ -44,7 +44,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.49" />
+        <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="4.0.50" />
         <PackageReference Include="Soenneker.PlanetScale.HttpClients" Version="4.0.10" />
         <PackageReference Include="Soenneker.PlanetScale.OpenApiClient" Version="4.0.19" />
     </ItemGroup>
