@@ -48,6 +48,6 @@
     <ItemGroup>
         <PackageReference Include="Soenneker.Kiota.GenericAuthenticationProvider" Version="11.0.62" />
         <PackageReference Include="Soenneker.PlanetScale.HttpClients" Version="11.0.48" />
-        <PackageReference Include="Soenneker.PlanetScale.OpenApiClient" Version="11.0.67" />
+        <PackageReference Include="Soenneker.PlanetScale.OpenApiClient" Version="11.0.68" />
     </ItemGroup>
 </Project>
